@@ -1,58 +1,9 @@
-/* Переменные цветов */
-:root {
-    --deep-ocean: #0A192F;
-    --cyan-pulse: #00F2FF;
-    --pure-white: #F8F9FA;
+.container { max-width: 600px; margin: 40px auto; padding: 20px; }
+.event-card { 
+    background: #1e2a44; 
+    padding: 20px; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    border: 1px solid #00F2FF;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    background-color: var(--deep-ocean);
-    color: var(--pure-white);
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 50px;
-    align-items: center;
-}
-
-.logo { font-size: 1.5rem; font-weight: bold; color: var(--cyan-pulse); }
-
-nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
-
-.hero {
-    text-align: center;
-    padding: 150px 20px;
-}
-
-h1 { font-size: 3.5rem; margin-bottom: 20px; }
-
-.cta-buttons { margin-top: 30px; }
-
-.btn-primary {
-    background-color: var(--cyan-pulse);
-    color: var(--deep-ocean);
-    padding: 15px 40px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-primary:hover { opacity: 0.9; transform: scale(1.05); }
-
-.btn-secondary {
-    background: transparent;
-    color: var(--pure-white);
-    border: 2px solid var(--cyan-pulse);
-    padding: 15px 40px;
-    margin-left: 15px;
-    border-radius: 4px;
-    cursor: pointer;
-}
+.event-card h3 { color: #00F2FF; margin: 0 0 10px 0; }

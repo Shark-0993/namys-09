@@ -2,31 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAMYS-SWIM | Плавательный клуб </title>
+    <title>NAMYS-SWIM | Календарь</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">NAMYS-SWIM</div>
-        <nav>
-            <a href="#">Главная</a>
-            <a href="#">Календарь</a>
-            <a href="#">Результаты</a>
-        </nav>
     </header>
 
-    <main class="hero">
-        <h1>Твоя дистанция, твоя энергия,<br>твой результат.</h1>
-        <p>Объединяем сообщество пловцов категории Masters в Карагандинской области.</p>
-        <div class="cta-buttons">
-            <button class="btn-primary" onclick="alert('Регистрация открывается скоро!')">Стать участником</button>
-            <button class="btn-secondary">Расписание</button>
-        </div>
-    </main>
+    <section class="container">
+        <h2>Календарь соревнований</h2>
+        <div id="schedule-list">Загрузка расписания...</div>
+    </section>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyAAvQxBmkTtiTGgb_GsVQZo1YkJMqoBjfU",
             authDomain: "namys-swim.firebaseapp.com",
@@ -35,7 +27,26 @@
             messagingSenderId: "454427203921",
             appId: "1:454427203921:web:7e8ee244d73d4324421b70"
         };
+
         const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function loadSchedule() {
+            const container = document.getElementById('schedule-list');
+            const querySnapshot = await getDocs(collection(db, "schedule"));
+            container.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+                const s = doc.data();
+                container.innerHTML += `
+                    <div class="event-card">
+                        <h3>${s.event}</h3>
+                        <p>📍 ${s.location}</p>
+                        <p>📅 ${s.date}</p>
+                    </div>
+                `;
+            });
+        }
+        loadSchedule();
     </script>
 </body>
 </html>
