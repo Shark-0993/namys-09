@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAMYS-SWIM | Плавательный клуб </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">NAMYS-SWIM</div>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Календарь</a>
+            <a href="#">Результаты</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1>Твоя дистанция, твоя энергия,<br>твой результат.</h1>
+        <p>Объединяем сообщество пловцов категории Masters в Карагандинской области.</p>
+        <div class="cta-buttons">
+            <button class="btn-primary" onclick="alert('Регистрация открывается скоро!')">Стать участником</button>
+            <button class="btn-secondary">Расписание</button>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAAvQxBmkTtiTGgb_GsVQZo1YkJMqoBjfU",
+            authDomain: "namys-swim.firebaseapp.com",
+            projectId: "namys-swim",
+            storageBucket: "namys-swim.appspot.com",
+            messagingSenderId: "454427203921",
+            appId: "1:454427203921:web:7e8ee244d73d4324421b70"
+        };
+        const app = initializeApp(firebaseConfig);
+    </script>
+</body>
+</html>
