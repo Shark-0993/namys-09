@@ -2,51 +2,25 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>NAMYS-SWIM | Календарь</title>
-    <link rel="stylesheet" href="style.css">
+    <title>NAMYS-SWIM 🏊‍♂️</title>
+    <style>
+        body { font-family: sans-serif; background: #eef2f3; padding: 20px; }
+        .box { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+        h1 { color: #007bff; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #007bff; color: white; }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">NAMYS-SWIM</div>
-    </header>
-
-    <section class="container">
-        <h2>Календарь соревнований</h2>
-        <div id="schedule-list">Загрузка расписания...</div>
-    </section>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAAvQxBmkTtiTGgb_GsVQZo1YkJMqoBjfU",
-            authDomain: "namys-swim.firebaseapp.com",
-            projectId: "namys-swim",
-            storageBucket: "namys-swim.appspot.com",
-            messagingSenderId: "454427203921",
-            appId: "1:454427203921:web:7e8ee244d73d4324421b70"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        async function loadSchedule() {
-            const container = document.getElementById('schedule-list');
-            const querySnapshot = await getDocs(collection(db, "schedule"));
-            container.innerHTML = "";
-            querySnapshot.forEach((doc) => {
-                const s = doc.data();
-                container.innerHTML += `
-                    <div class="event-card">
-                        <h3>${s.event}</h3>
-                        <p>📍 ${s.location}</p>
-                        <p>📅 ${s.date}</p>
-                    </div>
-                `;
-            });
-        }
-        loadSchedule();
-    </script>
+    <div class="box">
+        <h1>Результаты NAMYS-SWIM 🏆</h1>
+        <table>
+            <tr><th>ФИО</th><th>Стиль</th><th>Время</th></tr>
+            <tr><td>Алихан К.</td><td>Кроль</td><td>28.4</td></tr>
+            <tr><td>Данияр А.</td><td>Баттерфляй</td><td>31.2</td></tr>
+        </table>
+        <p style="text-align:center;">✨ Сайт работает автономно и бесплатно! ✨</p>
+    </div>
 </body>
 </html>
